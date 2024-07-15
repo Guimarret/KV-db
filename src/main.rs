@@ -1,9 +1,11 @@
 use hyper::server::conn::AddrStream;
 use hyper::service::{make_service_fn, service_fn};
 use hyper::{Body, Request, Response, Server};
+use log::warn;
+use std::char;
 use std::convert::Infallible;
 use std::net::SocketAddr;
-use tracing::{info, Level};
+use tracing::{info, Level, Value};
 use tracing_subscriber::FmtSubscriber;
 
 async fn handle_request(
@@ -41,4 +43,12 @@ async fn main() {
     if let Err(e) = server.await {
         eprintln!("Server error: {}", e);
     }
+}
+#[allow(dead_code)] 
+
+fn database_node_management(key:char, value:char){
+    let node_char:[char;36] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    // DB will ignore keys with lower or uper case
+    // Value have to be obligatory a char not a float
+    
 }
