@@ -22,12 +22,13 @@
             pre-commit 
             rustPackages.clippy 
             rustup
+            glibc
           ];
           RUST_SRC_PATH = rustPlatform.rustLibSrc;
-          shellHook = ''
-                      export LD_LIBRARY_PATH=/lib64:$LD_LIBRARY_PATH
-                      zsh
-                      '';
+           shellHook = ''
+           zsh
+            # export LD_LIBRARY_PATH=/lib64:$LD_LIBRARY_PATH
+           '';
         };
       }
     );
